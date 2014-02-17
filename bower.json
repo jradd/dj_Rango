@@ -1,0 +1,26 @@
+{
+  "name": "dj_Rango",
+  "version": "0.0.0",
+  "authors": [
+    "jradd <jredd42@gmail.com>"
+  ],
+  "description": "Django blog",
+  "keywords": [
+    "django",
+    "blog"
+  ],
+  "license": "MIT",
+  "homepage": "http://jeremyredd.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "blogengine/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "html5-boilerplate": "~4.3.0"
+  }
+}
