@@ -1,0 +1,38 @@
+[
+{
+  "pk": 1, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "radd", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2014-02-17T08:08:48.256Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$fheJ9t3tSSog$LfflltkeXK+NFztXw7OCiamb6Lxu6GKo0EHUpTCsUiA=", 
+    "email": "contact@jeremyredd.com", 
+    "date_joined": "2014-02-17T06:18:29.514Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "thedoctor", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2014-02-17T08:32:10.875Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$HXBIOKMtd5ek$GaWszViICKjuPPsmQmxQkthZlsmAL69NJDd4F6riOEU=", 
+    "email": "test@jeremyredd.com", 
+    "date_joined": "2014-02-17T08:32:10.875Z"
+  }
+}
+]
