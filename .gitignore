@@ -1,3 +1,6 @@
 *.pyc
 db.sqlite3
 blogengine/static/bower_components/
+blogengine/static/
+dj_Rango_blog/settings.py
+

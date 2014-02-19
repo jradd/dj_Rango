@@ -1,14 +1,3 @@
-"""
-Django settings for dj_Rango_blog project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -17,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ac1@1t)pw9nl+ri02gm9$oofg8oyb#qw00k!34)8^!&a9w!d)('
+SECRET_KEY = 'fds-nk_-a1mj&n^nghc$dp@r0*fvcp1gywnenapindvifdh4f5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,12 +27,19 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'blogengine',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'django.contrib.syndication',
+    'debug_toolbar',
 )
+
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+   # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -80,7 +76,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+STATIC_ROOT = '/srv/www/jradd/staticfiles/dj_Rango_blog'
 
 STATIC_URL = '/static/'
 
+# Template directory
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+INTERNAL_IPS = ['0.0.0.0', '10.3.0.42']
