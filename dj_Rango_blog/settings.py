@@ -1,3 +1,4 @@
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -31,6 +32,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.syndication',
     'debug_toolbar',
+    'endless_pagination',
 )
 
 SITE_ID = 1
@@ -49,7 +51,9 @@ ROOT_URLCONF = 'dj_Rango_blog.urls'
 
 WSGI_APPLICATION = 'dj_Rango_blog.wsgi.application'
 
-
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+)
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
@@ -83,4 +87,4 @@ STATIC_URL = '/static/'
 # Template directory
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-INTERNAL_IPS = ['0.0.0.0', '10.3.0.42']
+INTERNAL_IPS = ['0.0.0.0', '10.3.0.42', '10.3.0.101']

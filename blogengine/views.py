@@ -8,8 +8,14 @@ from django.contrib.syndication.views import Feed
 
 # Create your views here.
 
+class PostListView(ListView):
+    model = Post
+    template_name = 'blogengine/post_list.html'
+    context_object_name = "post_list"
+    paginate_by = 5     # CHANGE THIS FOR LARGER PAGES
+
 class IndexView(ListView):
-    template_name = 'foundation/index.html'
+    template_name = 'index.html'
     context_object_name = 'latest_post_list'
 
     def get_queryset(self):

@@ -1,13 +1,13 @@
 {% load static %}
 {% load foundation_tags %}
 <!doctype html>
-<html class="no-js" lang="en">
+<html {{ html_attr|safe }}class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block meta %}{% endblock meta %}
     {% block base_title %}
-    <title>{% block title %}Jeremy Redd{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %}</title>
     {% endblock base_title %}
 
     {# Base Foundation CSS #}
@@ -15,27 +15,26 @@
     {% foundation_css "normalize" %}
     {% foundation_css "foundation.min" %}
     {% endblock foundation_css %}  
-
+    
     {# Custom CSS #}
     {% block css %}{% endblock css %}
-    
+
     {# Override if you need another version of modernizr #}
     {% block foundation_modernizer %}
     {% foundation_vendor "modernizr" %}
     {% endblock foundation_modernizer %}
-    
+
     {# Custom head JS #}
     {% block head_js %}{% endblock head_js %}
 </head>
 
 <body {% block body_attr %}{% endblock body_attr %}>
     {# Main content goes here #}
-    {% block base_body %}
-
-
-            
-    {% endblock base_body %}
-
+    <div class="contain-to-grid sticky">
+    {% include "blogengine/includes/blog_nav.html" %}
+    </div>
+    {% block content %} {% endblock content %}
+    {% block base_body %}{% endblock base_body %}
     {# Override if you need another version of jQuery #}
     {% block foundation_jquery %}
     {% foundation_vendor "jquery" %}
@@ -55,30 +54,12 @@
         $(document).foundation();
     </script>
     {% endblock foundation_js_init %}
-</body>
-</html>
-        
-        <div id="fb-root"></div>
-<script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-
-        
-
-        
-
-        <div class="container footer">
+            <div class="container footer">
             <div class="row">
                 <div class="span12">
                     <p>Copyright &copy; {% now "Y" %}</p>
                 </div>
             </div>
         </div>
-         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{% static 'bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js' %}"><\/script>')</script>
-        <script src="{% static 'bower_components/html5-boilerplate/js/plugins.js' %}"></script>
-        <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

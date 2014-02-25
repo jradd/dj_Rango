@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}  
+{% endblock title %}
+{% block custom_css %}
+
+<link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}styles.css" />
+
+{% endblock custom_css %}
+<div class="body_attr">
+{% block body_attr %}{% endblock body_attr %}
+
+{% block content %}
+
+{% include "blogengine/includes/base_content.html" %}
+{% endblock content %}
+</div>

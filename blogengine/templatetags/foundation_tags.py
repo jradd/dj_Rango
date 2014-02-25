@@ -8,8 +8,7 @@ def foundation_js(js_name=None):
     js_path = "bower_components/foundation/js/foundation/foundation.{0}.js".format(js_name)
     if js_name is None:
         js_path = "bower_components/foundation/js/foundation.min.js".format(js_name)
-
-    return '<script src="{0}"></script>'.format(static(js_path))
+	return '<script src="{0}"></script>'.format(static(js_path))
 
 @register.simple_tag
 def foundation_vendor(vendor_name):

@@ -1,8 +1,8 @@
-{% extends "blogengine/includes/base.html" %}
+{% extends "blogengine/blog.html" %}
 
     {% load custom_markdown %}
 
-    {% block content %}
+    {% block base_body %}
         {% for post in object_list %}
         <div class="post">
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
@@ -15,11 +15,23 @@
         {% endfor %}
         {% endfor %}
 
+    {% if is_paginated %}
+       <div class="pagination-centered"> 
+        <ul class="inline-list centered">
         {% if page_obj.has_previous %}
-        <a href="/{{ page_obj.previous_page_number }}/">Previous Page</a>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <a href="/{{ page_obj.next_page_number }}/">Next Page</a>
-        {% endif %}
 
-    {% endblock %}
+        <li class="arrow"><a href="/blog/{{ page_obj.previous_page_number }}/">&laquo;</a></li>
+        {% endif %}
+        <li class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </li>
+
+        {% if page_obj.has_next %}
+        <li class="arrow"><a href="/blog/{{ page_obj.next_page_number }}/">&raquo;</a></li>
+        {% endif %}
+        </ul>
+        </div>
+    {% endif %}
+
+    {% endblock base_body %}
+
