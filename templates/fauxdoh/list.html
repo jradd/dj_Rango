@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base_body %}
+    <ul>
+    {% for photo in photos %}
+        <li><a href="{{ photo.photofile.url }}">{{ photo.photofile.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock base_body %}
+
+<! Upload form. Note enctype attribute! -->
+<form action="{% url list %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+<p>{{ form.non_field_errors }}</p>
+<p>{{ form.photofile.label_tag }} {{ form.photofile.help_text }}</p>
+<p>
+    {{ form.photofile.errors }}
+    {{ form.photofile }}
+</p>
+<p><input type="submit" value="Upload" /></p>
+</form>
